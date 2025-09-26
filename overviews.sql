@@ -1,15 +1,19 @@
 -- Collects all pitch types at each stadium and counts them
 SELECT
-    home_team, 
+    home_team as stadium, 
     pitch_type, 
     COUNT(*) AS total_pitches
 from dbo.[2024_pitch_by_pitch_data]
 GROUP BY home_team, pitch_type
 ORDER BY home_team, total_pitches DESC;
 
--- Example of query finding sliders at Rate field, used for digging into data
-SELECT * from dbo.[2024_pitch_by_pitch_data]
-where pitch_type = 'SL' and home_team = 'CWS'
+-- Collects and counts all pitch types thrown regardless of stadium
+SELECT 
+    pitch_type, 
+    COUNT(*) AS total_pitches
+from dbo.[2024_pitch_by_pitch_data]
+GROUP BY pitch_type
+ORDER BY total_pitches DESC;
 
 -- Collects all pitch types at each stadium and counts them, with strike/ball/in play breakdown
 SELECT 
@@ -26,3 +30,4 @@ SELECT
 FROM dbo.[2024_pitch_by_pitch_data]
 GROUP BY home_team, pitch_type
 ORDER BY home_team, total_pitches DESC;
+
