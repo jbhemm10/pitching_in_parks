@@ -43,6 +43,8 @@ INNER JOIN dbo.pitch_abbreviations pa
 GROUP BY p.home_team, p.pitch_type, pa.pitch_name
 ORDER BY p.home_team, total_pitches DESC;
 
+
+
 -- Join pitch data with full name for pitches
 SELECT 
 p.home_team as stadium,
