@@ -2,14 +2,14 @@ pitch_name, pitch_abbreviation, description
 Four-seam fastball,FF,Typically fastest pitch in a pitcher's arsenal
 Sinker,SI,A fastball with downward side-arm
 Slider,SL,A breaking pitch with glove side movement
-Changeup,CH,A pitch that looks similar to a fastball but with less speed and more drop 
+Changeup,CH,A pitch that looks similar to a fastball but with less speed and more drop
 Cutter,FC,A fastball with glove side movement
 Sweeper,ST,A breaking pitch similar to a slider but with more horizontal movement and lower velocity
 Curveball,CU,A breaking pitch with significant downward movement
 Splitter,FS,A pitch that looks like a fastball but drops sharply as it nears the plate
 Knuckle curve,KC,A curveball thrown with a knuckleball grip
 Slurve,SV,A breaking pitch that is a hybrid between a slider and a curveball
-Knuckleball,KN,A pitch thrown to minimize spin, resulting in erratic movement
+Knuckleball,KN,A pitch thrown to minimize spin resulting in erratic movement
 Fastball,FA,A generic term for any pitch thrown with high velocity
 Eephus,EP,A very slow pitch with a high arcing trajectory
 Forkball,FO,A pitch similar to a splitter but held deeper in the hand
