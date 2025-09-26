@@ -17,10 +17,10 @@ ORDER BY total_pitches DESC;
 
 -- Collects all pitch types at each stadium and counts them, with strike/ball/in play breakdown
 SELECT 
-    p.home_team as venue_abbreviation,
     s.venue_name,
-    p.pitch_type,
+    s.team_name AS home_team_name,
     pa.pitch_name,
+    p.pitch_type,
     COUNT(*) AS total_pitches,
     COUNT(CASE WHEN p.description = 'called_strike' OR p.description = 'swinging_strike' or p.description = 'foul' OR p.description = 'foul_tip' or p.description = 'foul_bunt' or p.description = 'missed_bunt' THEN 1 END) AS strike_count,
     COUNT(CASE WHEN p.description = 'ball' or p.description = 'blocked_ball' or p.description = 'hit_by_pitch' THEN 1 END) AS ball_count,
@@ -43,8 +43,8 @@ INNER JOIN dbo.pitch_abbreviations pa
     ON p.pitch_type = pa.pitch_abbreviation
 INNER JOIN dbo.stadium_info s
     ON p.home_team = s.abbreviation
-GROUP BY p.home_team, s.venue_name, p.pitch_type, pa.pitch_name
-ORDER BY p.home_team, total_pitches DESC;
+GROUP BY s.team_name, s.venue_name, p.pitch_type, pa.pitch_name
+ORDER BY s.team_name, total_pitches DESC;
 
 
 -- Join pitch data with full name for pitches
