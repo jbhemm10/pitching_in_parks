@@ -1,4 +1,5 @@
 -- Collects all pitch types at each stadium and counts them
+-- Output is saved as 'park_overview.csv'
 SELECT
     home_team as stadium, 
     pitch_type, 
@@ -8,11 +9,19 @@ GROUP BY home_team, pitch_type
 ORDER BY home_team, total_pitches DESC;
 
 -- Collects and counts all pitch types thrown regardless of stadium
+-- Saved as 'pitch_overview.csv'
 SELECT 
-    pitch_type, 
+    pitch_type,
     COUNT(*) AS total_pitches
 from dbo.[2024_pitch_by_pitch_data]
 GROUP BY pitch_type
+
+UNION ALL
+
+SELECT 
+    'ALL' AS pitch_type,
+    COUNT(*) AS total_pitches
+from dbo.[2024_pitch_by_pitch_data]
 ORDER BY total_pitches DESC;
 
 -- Collects all pitch types at each stadium and counts them, with strike/ball/in play breakdown
