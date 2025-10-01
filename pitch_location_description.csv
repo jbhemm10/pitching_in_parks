@@ -1,0 +1,14 @@
+zone,zone_description
+1,upper left inside the strike zone
+2,upper middle inside the strike zone
+3,upper right inside the strike zone
+4,middle left inside the strike zone
+5,middle middle inside the strike zone
+6,middle right inside the strike zone
+7,lower left inside the strike zone
+8,lower middle inside the strike zone
+9,lower right inside the strike zone
+11,up and left outside the strike zone
+12,up and right outside the strike zone
+13,low and left outside the strike zone
+14,low and right outside the strike zone
