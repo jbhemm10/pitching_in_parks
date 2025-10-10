@@ -4,7 +4,7 @@ SELECT
     home_team as stadium, 
     pitch_type, 
     COUNT(*) AS total_pitches
-from dbo.[2024_pitch_by_pitch_data]
+from dbo.[2025_pitch_by_pitch_data]
 GROUP BY home_team, pitch_type
 ORDER BY home_team, total_pitches DESC;
 
@@ -13,7 +13,7 @@ ORDER BY home_team, total_pitches DESC;
 SELECT 
     pitch_type,
     COUNT(*) AS total_pitches
-from dbo.[2024_pitch_by_pitch_data]
+from dbo.[2025_pitch_by_pitch_data]
 GROUP BY pitch_type
 
 UNION ALL
@@ -21,7 +21,7 @@ UNION ALL
 SELECT 
     'ALL' AS pitch_type,
     COUNT(*) AS total_pitches
-from dbo.[2024_pitch_by_pitch_data]
+from dbo.[2025_pitch_by_pitch_data]
 ORDER BY total_pitches DESC;
 
 -- Collects all pitch types at each stadium and counts them, with strike/ball/in play breakdown
@@ -51,7 +51,7 @@ SELECT
     COUNT(CASE WHEN p.events = 'grounded_into_double_play' THEN 1 END) AS gidp_count,
     COUNT(CASE WHEN p.events = 'double_play' THEN 1 END) AS double_play_count,
     COUNT(CASE WHEN p.events = 'field_error' THEN 1 END) AS error_count  
-FROM dbo.[2024_pitch_by_pitch_data] p
+FROM dbo.[2025_pitch_by_pitch_data] p
 INNER JOIN dbo.pitch_abbreviations pa
     ON p.pitch_type = pa.pitch_abbreviation
 INNER JOIN dbo.stadium_info s
@@ -68,7 +68,7 @@ p.home_team as stadium,
 p.pitch_type,
 pa.pitch_name,
 COUNT(*) AS total_pitches
-FROM dbo.[2024_pitch_by_pitch_data] p
+FROM dbo.[2025_pitch_by_pitch_data] p
 INNER JOIN dbo.pitch_abbreviations pa
     ON p.pitch_type = pa.pitch_abbreviation
 GROUP BY p.home_team, p.pitch_type, pa.pitch_name
