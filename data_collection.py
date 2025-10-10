@@ -9,11 +9,12 @@ OUTPUTS:
 import pandas as pd
 import pybaseball
 from pybaseball import statcast
-
+import datetime
+from datetime import date
 
 
 # Collect stadium and team information
-stadium_data = pd.read_csv('MLB_Stadium_Info.csv')
+stadium_data = pd.read_csv('input_tables/MLB_Stadium_Info.csv')
 
 teams = stadium_data['team_name'].tolist()
 abbreviations = stadium_data['abbreviation'].tolist()
@@ -32,7 +33,7 @@ else:
 
 # Ask user what year they want data for 
 year_input = input("Enter the year you want data for (e.g., '2023'): ")
-while not year_input.isdigit() or int(year_input) < 1962 or int(year_input) > 2024:
+while not year_input.isdigit() or int(year_input) < 1962 or int(year_input) > date.today().year:
     print("Invalid year. Please enter a year between 1962 and 2024.")
     year_input = input("Enter the year you want data for (e.g., '2023'): ")
     print(f"You entered: {year_input}")
@@ -67,7 +68,7 @@ data_year = data_year[cols_to_keep]
 data_year.insert(0, 'id', range(1, 1 + len(data_year)))
 
 # Save to csv
-data_year.to_csv(f'{year_input}_pitch_by_pitch_data.csv', index=False)
+data_year.to_csv(f'input_tables/{year_input}_pitch_by_pitch_data.csv', index=False)
 
 # Count how many fast
 
